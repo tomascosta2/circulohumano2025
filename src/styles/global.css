@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+body {
+	font-family: 'Montserrat Variable', sans-serif;
+}
+
+.tcp-container {
+	@apply max-w-[1200px] mx-auto px-4;
+}
