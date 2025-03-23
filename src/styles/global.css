@@ -25,5 +25,5 @@ body {
 }
 
 .ch-btn {
-	@apply bg-[#FF7A22] px-8 py-6 text-white font-semibold rounded-sm mx-auto block w-fit cursor-pointer;
+	@apply bg-[#FF7A22] px-8 py-6 text-white font-semibold rounded-sm mx-auto block w-fit cursor-pointer leading-[120%];
 }
