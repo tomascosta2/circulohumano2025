@@ -1,0 +1,71 @@
+<section class="py-[80px]">
+	<div class="tcp-container">
+		<div class="grid md:grid-cols-2 gap-8">
+			<div class="bg-[#3B4FFF] rounded-lg p-[72px] overflow-clip relative max-w-full">
+				<img src="/images/form-bg.webp" alt="Fondo del formulario" class="w-full h-full object-cover absolute left-0 top-0 mix-blend-overlay" />
+				<div class="md:w-[300px] w-full mx-auto relative">
+					<form action="" id="webhookForm">
+						<label for="email" class="text-[#fff] font-medium mb-4 block">
+							Tu correo electronico
+							<input type="email" name="email" placeholder="rompiendoelciclo@gmail.com" class="w-full p-[16px] rounded-[6px] bg-[#fff] mt-2 text-[#111]/60 placeholder:text-[14px] font-normal" />
+						</label>
+						<label for="phone" class="text-[#fff] font-medium">
+							Tu numero de whatsapp
+							<input type="tel" name="phone" placeholder="+54 2616841853" class="w-full p-[16px] rounded-[6px] bg-[#fff] mt-2 text-[#111]/60 placeholder:text-[14px] font-normal" />
+						</label>
+						<button type="submit" class="bg-[#FF7A22] px-6 py-4 text-white font-semibold rounded-sm mx-auto block w-full cursor-pointer mt-6">
+							Quiero la Masterclass Gratis
+						</button>
+					</form>
+				</div>
+			</div>
+			<div class="py-8 max-w-full">
+				<p class="mb-4">En  esta Masterclass te vas a llevar:</p>
+				<ul class="list-inside">
+					<li class="mb-4 flex gap-2">
+						<svg class="size-[20px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="#FF7A22"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
+						Absoluta claridad de por donde no es tu camino.
+					</li>
+					<li class="mb-4 flex gap-2">
+						<svg class="size-[20px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="#FF7A22"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
+						Descubrir cual es el aprendizaje detras de lo que te esta pasando.
+					</li>
+					<li class="mb-4 flex gap-2">
+						<svg class="size-[20px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="#FF7A22"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
+						Aprender como atravesar este momento para dejar de sentir angustia y ansiedad.
+					</li>
+					<li class="mb-4 flex gap-2">
+						<svg class="size-[20px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="#FF7A22"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
+						Descrubir en quien te podes convertir y cual es todo tu potencial.
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	document.getElementById("webhookForm")?.addEventListener("submit", async function(event) {
+	  event.preventDefault();
+  
+	  const formData = new FormData(this as HTMLFormElement);
+	  const data = Object.fromEntries(formData.entries());
+  
+	  try {
+		const response = await fetch("https://hook.us2.make.com/6r4yj1ft4iviusogbeshmaayv1rqu9vk", {
+		  method: "POST",
+		  headers: { "Content-Type": "application/json" },
+		  body: JSON.stringify(data),
+		});
+  
+		if (response.ok) {
+		  alert("Formulario enviado con éxito.");
+		  (this as HTMLFormElement).reset();
+		} else {
+		  alert("Error al enviar el formulario.");
+		}
+	  } catch (error) {
+		alert("Hubo un problema al enviar los datos.");
+	  }
+	});
+  </script>

@@ -1,0 +1,96 @@
+---
+const PREGUNTAS = [
+  {
+    pregunta: "¿Y si creo que no puedo meditar?",
+    respuesta: "No te preocupes, este programa incluye meditaciones guiadas ultra cortas diseñadas para personas que tienen dificultad en concentrarse. No necesitas experiencia previa, solo unos minutos al día."
+  },
+  {
+    pregunta: "No sé para qué soy bueno, ¿esto realmente me ayudará?",
+    respuesta: "Sí, contamos con un test de habilidades que te ayudará a descubrir tus talentos únicos y cómo puedes potenciarlos en tu vida diaria."
+  },
+  {
+    pregunta: "Mi familia y amigos no creen en el desarrollo personal, ¿qué hago?",
+    respuesta: "Es normal encontrar resistencia en el entorno. Por eso, tendrás acceso a un audio y ejercicios diseñados para fortalecer tu mentalidad y liberarte de la necesidad de validación externa."
+  },
+  {
+    pregunta: "No tengo tiempo, ¿cómo puedo seguir el programa?",
+    respuesta: "Este programa está diseñado con una estructura flexible para adaptarse a tu rutina. Además, las sesiones grupales se ajustan a los horarios de los participantes, para que siempre puedas aprovecharlas."
+  },
+  {
+    pregunta: "No tengo dinero, ¿cómo puedo invertir en esto?",
+    respuesta: "Entendemos tu preocupación. Por eso, te enseñaremos estrategias de reestructuración financiera y una nueva visión sobre el desarrollo personal como inversión, no como gasto."
+  },
+  {
+    pregunta: "Tengo miedo a cambiar y fracasar, ¿cómo lo manejo?",
+    respuesta: "El miedo es parte del proceso de crecimiento. En este programa aprenderás herramientas prácticas para fortalecer la confianza y transformar el miedo en entusiasmo."
+  },
+  {
+    pregunta: "¿Qué pasa si empiezo y luego siento que no puedo continuar?",
+    respuesta: "Aquí no hay presión ni expectativas inalcanzables. Contarás con apoyo constante y estrategias para mantener la motivación, adaptando el programa a tu ritmo."
+  }
+];
+---
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		const faqItems = document.querySelectorAll(".faq-item");
+
+		faqItems.forEach((item, index) => {
+			item.addEventListener("click", () => {
+				const content = item.querySelector(".faq-content") || item;
+				const icon = item.querySelector(".icon") || item;
+
+				const isOpen = content.classList.contains("max-h-[2000px]");
+
+				document.querySelectorAll(".faq-content").forEach((faq) => {
+					faq.classList.remove("max-h-[2000px]");
+					faq.classList.add("max-h-0");
+				});
+
+				document.querySelectorAll(".icon").forEach((svg) => {
+					svg.classList.remove("rotate-45");
+				});
+
+				if (!isOpen) {
+					content.classList.add("max-h-[2000px]");
+					content.classList.remove("max-h-0");
+					icon.classList.add("rotate-45");
+				}
+			});
+		});
+	});
+</script>
+
+<section id="faqs" class="relative py-[60px] lg:py-[100px] px-4">
+	<div class="tc-container">
+		<h2 class="text-[34px] font-bold mb-8 text-center">
+			Preguntas Frecuentes
+		</h2>
+		<div class="max-w-[800px] mx-auto">
+			{
+				PREGUNTAS.map((item, index) => (
+					<div
+						class="faq-item w-full cursor-pointer bg-primary p-[20px] rounded-[6px] border border-[#000]/20 mb-[10px]"
+						data-index={index}
+					>
+						<h3 class="text-[16px] md:text-[18px] text-[#111] font-medium flex justify-between items-center">
+							{item.pregunta}
+							<svg
+								class="icon min-w-[20px] size-[20px] transition-all duration-300"
+								fill="#111"
+								viewBox="0 0 448 512"
+							>
+								<path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+							</svg>
+						</h3>
+						<div class="faq-content normal-case overflow-hidden duration-500 transition-all max-h-0">
+							<p class="text-[#111]/80 text-[16px] pt-[10px]">
+								{item.respuesta}
+							</p>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

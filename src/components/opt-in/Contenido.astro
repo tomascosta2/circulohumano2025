@@ -1,0 +1,60 @@
+---
+const CONTENIDOS = [
+	{
+		titulo: "Como definir con claridad si estoy en el lugar correcto",
+		texto: "Texto",
+	},
+	{
+		titulo: "Como descubrir para que me esta pasando esto",
+		texto: "Texto",
+	},
+	{
+		titulo: "Qué herramientas tengo para dejar de sentir angustia y ansiedad?",
+		texto: "Texto",
+	},
+	{
+		titulo: "Como descubrir para que me esta pasando esto",
+		texto: "Texto",
+	},
+];
+---
+
+<section class="py-[80px]">
+	<div class="tcp-container">
+		<h2
+			class="text-[24px] leading-[120%] md:text-[40px] md:leading-[50px] text-[#111] font-bold max-w-[740px] mx-auto text-center"
+		>
+			Las 4 Claves Para Romper Las Cadenas Y SER MAS LIBRE
+		</h2>
+		<p
+			class="mb-8 mt-4 md:mt-4 md:mb-12 text-[#111]/80 text-center md:text-[16px] text-[14px]"
+		>
+			(De una vez por todas)
+		</p>
+		<div class="max-w-[1020px] mx-auto">
+			{
+				CONTENIDOS.map((contenido, index) => (
+					<div
+						class="group flex gap-4 md:gap-8 not-last:mb-8 flex-col-reverse md:flex-row md:even:flex-row-reverse"
+					>
+						<div class="bg-gray-400 h-[300px] md:w-1/2" />
+						<div class="flex flex-col justify-center md:w-1/2">
+							<h3 class="group-even:text-end font-bold text-[22px] md:text-[32px] text-[#111] leading-[120%]">
+								{contenido.titulo}
+							</h3>
+							<p class="group-even:text-end text-[#111]/80 mt-4">
+								{contenido.texto}
+							</p>
+						</div>
+					</div>
+				))
+			}
+		</div>
+		<div class="mt-12">
+			<button class="ch-btn"
+				>HACE CLIC ACÁ PARA RECLAMAR TU CLASE GRATIS »</button
+			>
+			<p class="text-[#111]/80 text-center text-[14px] md:text-[16px] mt-4">Oferta valida solo por este mes.</p>
+		</div>
+	</div>
+</section>
