@@ -1,0 +1,37 @@
+<section class="fixed bg-[#111]/40 top-0 left-0 w-full h-full z-50 hidden" id="popup">
+	<div class="h-full flex items-center justify-center" id="popupContent">
+		<div class="bg-[#3B4FFF] rounded-lg px-[16px] py-[64px] md:p-[72px] overflow-clip relative max-w-fit">
+			<img src="/images/form-bg.webp" alt="Fondo del formulario" class="w-full h-full object-cover absolute left-0 top-0 mix-blend-overlay" />
+			<div class="md:w-[300px] w-full mx-auto relative">
+				<form action="" id="webhookForm">
+					<label for="email" class="text-[#fff] font-medium mb-4 block">
+						Tu correo electronico
+						<input type="email" name="email" placeholder="rompiendoelciclo@gmail.com" class="w-full p-[16px] rounded-[6px] bg-[#fff] mt-2 text-[#111]/60 placeholder:text-[14px] font-normal" />
+					</label>
+					<label for="phone" class="text-[#fff] font-medium">
+						Tu numero de whatsapp
+						<input type="tel" name="phone" placeholder="+54 2616841853" class="w-full p-[16px] rounded-[6px] bg-[#fff] mt-2 text-[#111]/60 placeholder:text-[14px] font-normal" />
+					</label>
+					<button type="submit" class="bg-[#FF7A22] px-6 py-4 text-white font-semibold rounded-sm mx-auto block w-full cursor-pointer mt-6">
+						Quiero la Masterclass Gratis
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	document.querySelectorAll('.open-popup').forEach((el) => {
+		el.addEventListener('click', () => {
+			document.getElementById('popup')?.classList.toggle('hidden');
+		});
+	});
+
+	document.getElementById('popup')?.addEventListener('click', (e) => {
+		console.log(e.target, ' target:', document.getElementById('popup'));
+		if (e.target === document.getElementById('popupContent')) {
+			document.getElementById('popup')?.classList.add('hidden');
+		}
+	});
+</script>
