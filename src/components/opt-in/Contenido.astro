@@ -3,18 +3,22 @@ const CONTENIDOS = [
 	{
 		titulo: "Como definir con claridad si estoy en el lugar correcto",
 		texto: "Texto",
+		imagen: "/images/matias-rebozov-contenido-1.webp"
 	},
 	{
 		titulo: "Como descubrir para que me esta pasando esto",
 		texto: "Texto",
+		imagen: "/images/matias-rebozov-contenido-2.webp"
 	},
 	{
 		titulo: "Qué herramientas tengo para dejar de sentir angustia y ansiedad?",
 		texto: "Texto",
+		imagen: "/images/matias-rebozov-contenido-3.webp"
 	},
 	{
-		titulo: "Como descubrir para que me esta pasando esto",
+		titulo: "En quien me tengo que convertir para lograrlo",
 		texto: "Texto",
+		imagen: "/images/matias-rebozov-contenido-4.webp"
 	},
 ];
 ---
@@ -35,9 +39,9 @@ const CONTENIDOS = [
 			{
 				CONTENIDOS.map((contenido, index) => (
 					<div
-						class="group flex gap-4 md:gap-8 not-last:mb-8 flex-col-reverse md:flex-row md:even:flex-row-reverse"
+						class="group flex gap-4 md:gap-8 py-8 md:py-0 md:mb-0 md:not-last:mb-8 flex-col-reverse md:flex-row md:even:flex-row-reverse not-last:border-b border-neutral-950/20 md:border-0"
 					>
-						<div class="bg-gray-400 h-[300px] md:w-1/2" />
+						<img src={contenido.imagen} class="bg-gray-400 h-auto md:h-[300px] w-full md:w-1/2" />
 						<div class="flex flex-col justify-center md:w-1/2">
 							<h3 class="group-even:text-end font-bold text-[22px] md:text-[32px] text-[#111] leading-[120%]">
 								{contenido.titulo}
