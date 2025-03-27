@@ -39,7 +39,7 @@ const CONTENIDOS = [
 			{
 				CONTENIDOS.map((contenido, index) => (
 					<div
-						class="group flex gap-4 md:gap-8 py-8 md:py-0 md:mb-0 md:not-last:mb-8 flex-col-reverse md:flex-row md:even:flex-row-reverse not-last:border-b border-neutral-950/20 md:border-none"
+						class="group flex gap-4 md:gap-8 not-first:pt-8 not-last:pb-8 md:py-0 md:mb-0 md:not-last:mb-8 flex-col-reverse md:flex-row md:even:flex-row-reverse not-last:border-b border-neutral-950/20 md:border-none"
 					>
 						<img src={contenido.imagen} class="bg-gray-400 h-auto md:h-[300px] w-full md:w-1/2" />
 						<div class="flex flex-col justify-center md:w-1/2">
@@ -58,7 +58,7 @@ const CONTENIDOS = [
 			<button class="ch-btn open-popup"
 				>Hacé clic para reservar tu lugar »</button
 			>
-			<p class="text-[#111]/80 text-center text-[14px] md:text-[16px] mt-4">Oferta valida solo por este mes.</p>
+			<p class="text-[#111]/80 text-center text-[14px] md:text-[16px] mt-4">Esta oferta dejará de ser gratuita el próximo mes.</p>
 		</div>
 	</div>
 </section>
