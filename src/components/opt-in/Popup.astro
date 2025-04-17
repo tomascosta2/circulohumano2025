@@ -1,18 +1,89 @@
-<section class="fixed bg-[#111]/40 top-0 left-0 w-full h-full z-50 hidden px-4" id="popup">
+<section
+	class="fixed bg-[#111]/40 top-0 left-0 w-full h-full z-50 hidden px-4"
+	id="popup"
+>
 	<div class="h-full flex items-center justify-center" id="popupContent">
-		<div class="bg-[#3B4FFF] rounded-lg px-[16px] py-[64px] md:p-[72px] overflow-clip relative max-w-fit">
-			<img src="/images/form-bg.webp" alt="Fondo del formulario" class="w-full h-full object-cover absolute left-0 top-0 mix-blend-overlay" />
+		<div
+			class="bg-[#3B4FFF] rounded-lg px-[16px] py-[64px] md:p-[72px] overflow-clip relative max-w-fit"
+		>
+			<img
+				src="/images/form-bg.webp"
+				alt="Fondo del formulario"
+				class="w-full h-full object-cover absolute left-0 top-0 mix-blend-overlay"
+			/>
 			<div class="md:w-[300px] w-full mx-auto relative">
 				<form action="" id="webhookForm">
-					<label for="email" class="text-[#fff] font-medium mb-4 block">
+					<label
+						for="email"
+						class="text-[#fff] font-medium mb-4 block"
+					>
 						Tu correo electronico
-						<input type="email" name="email" placeholder="rompiendoelciclo@gmail.com" class="w-full p-[16px] rounded-[6px] bg-[#fff] mt-2 text-[#111]/60 placeholder:text-[14px] font-normal" />
+						<input
+							type="email"
+							name="email"
+							placeholder="rompiendoelciclo@gmail.com"
+							class="w-full p-[16px] rounded-[6px] bg-[#fff] mt-2 text-[#111]/60 placeholder:text-[14px] font-normal"
+						/>
 					</label>
-					<label for="phone" class="text-[#fff] font-medium">
-						Tu numero de whatsapp
-						<input type="tel" name="phone" placeholder="+54 2616841853" class="w-full p-[16px] rounded-[6px] bg-[#fff] mt-2 text-[#111]/60 placeholder:text-[14px] font-normal" />
+					<label for="phone" class="text-[#fff] font-medium block">
+						Tu número de WhatsApp
+						<div class="flex gap-2 mt-2">
+							<select
+								name="countryCode"
+								id="countryCode"
+								class="p-[16px] rounded-[6px] bg-[#fff] text-[#111]/80 font-normal"
+							>
+								<!-- Sudamérica -->
+								<option value="+54">🇦🇷 AR</option>
+								<option value="+591">🇧🇴 BO</option>
+								<option value="+55">🇧🇷 BR</option>
+								<option value="+56">🇨🇱 CL</option>
+								<option value="+57">🇨🇴 CO</option>
+								<option value="+593">🇪🇨 EC</option>
+								<option value="+595">🇵🇾 PY</option>
+								<option value="+51">🇵🇪 PE</option>
+								<option value="+598">🇺🇾 UY</option>
+								<option value="+58">🇻🇪 VE</option>
+
+								<!-- Centroamérica -->
+								<option value="+501">🇧🇿 BZ</option>
+								<option value="+506">🇨🇷 CR</option>
+								<option value="+507">🇵🇦 PA</option>
+								<option value="+502">🇬🇹 GT</option>
+								<option value="+504">🇭🇳 HN</option>
+								<option value="+505">🇳🇮 NI</option>
+								<option value="+503">🇸🇻 SV</option>
+
+								<!-- Norteamérica -->
+								<option value="+1">🇺🇸 US</option>
+								<option value="+1">🇨🇦 CA</option>
+								<option value="+52">🇲🇽 MX</option>
+
+								<!-- Caribe -->
+								<option value="+53">🇨🇺 CU</option>
+								<option value="+1">🇩🇴 DO</option>
+								<option value="+1">🇯🇲 JM</option>
+								<option value="+1">🇹🇹 TT</option>
+								<option value="+1">🇧🇸 BS</option>
+								<option value="+1">🇧🇧 BB</option>
+								<option value="+1">🇦🇬 AG</option>
+								<option value="+1">🇰🇳 KN</option>
+								<option value="+1">🇱🇨 LC</option>
+								<option value="+1">🇻🇨 VC</option>
+							</select>
+							<input
+								type="tel"
+								name="phone"
+								id="phoneInput"
+								placeholder="2616841853"
+								class="w-full p-[16px] rounded-[6px] bg-[#fff] text-[#111]/60 placeholder:text-[14px] font-normal"
+							/>
+						</div>
 					</label>
-					<button type="submit" class="bg-[#FF7A22] px-6 py-4 text-white font-semibold rounded-sm mx-auto block w-full cursor-pointer mt-6">
+					<button
+						type="submit"
+						class="bg-[#FF7A22] px-6 py-4 text-white font-semibold rounded-sm mx-auto block w-full cursor-pointer mt-6"
+					>
 						Quiero la Masterclass Gratis
 					</button>
 				</form>
@@ -22,16 +93,16 @@
 </section>
 
 <script>
-	document.querySelectorAll('.open-popup').forEach((el) => {
-		el.addEventListener('click', () => {
-			document.getElementById('popup')?.classList.toggle('hidden');
+	document.querySelectorAll(".open-popup").forEach((el) => {
+		el.addEventListener("click", () => {
+			document.getElementById("popup")?.classList.toggle("hidden");
 		});
 	});
 
-	document.getElementById('popup')?.addEventListener('click', (e) => {
-		console.log(e.target, ' target:', document.getElementById('popup'));
-		if (e.target === document.getElementById('popupContent')) {
-			document.getElementById('popup')?.classList.add('hidden');
+	document.getElementById("popup")?.addEventListener("click", (e) => {
+		console.log(e.target, " target:", document.getElementById("popup"));
+		if (e.target === document.getElementById("popupContent")) {
+			document.getElementById("popup")?.classList.add("hidden");
 		}
 	});
 </script>
