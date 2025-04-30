@@ -199,6 +199,10 @@
 					sendConversion(data);
 					
 					if (data.email && data.phone && data.countryCode && data.date) {
+						if (typeof data.phone === 'string') {
+							data.phone = data.phone.replace(/\D/g, '');
+						}
+
 						try {
 							const response = await fetch(
 							WEBHOOK_URL,
