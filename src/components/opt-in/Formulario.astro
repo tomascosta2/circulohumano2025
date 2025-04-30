@@ -29,6 +29,7 @@
 							>
 								Tu correo electronico
 								<input
+									required
 									type="email"
 									name="email"
 									placeholder="rompiendoelciclo@gmail.com"
@@ -42,6 +43,7 @@
 								Tu número de WhatsApp
 								<div class="flex gap-2 mt-2">
 									<select
+										required
 										name="countryCode"
 										id="countryCode"
 										class="p-[16px] rounded-[6px] bg-[#fff] text-[#111]/80 font-normal"
@@ -85,6 +87,7 @@
 										<option value="+1">🇻🇨 VC</option>
 									</select>
 									<input
+										required
 										type="tel"
 										name="phone"
 										id="phoneInput"
@@ -96,6 +99,7 @@
 							<label for="date" class="text-[#fff] font-medium block mt-6">
 								Elige tu fecha
 								<select
+									required
 									name="date"
 									id="date"
 									class="w-full p-[16px] rounded-[6px] bg-[#fff] mt-2 text-[#111]/80 font-normal"
@@ -180,7 +184,7 @@
 	</div>
 
 	<script>
-		const WEBHOOK_URL = "https://hook.us2.make.com/6r4yj1ft4iviusogbeshmaayv1rqu9vk"
+		const WEBHOOK_URL = "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTY4MDYzMjA0MzI1MjZlNTUzMDUxMzMi_pc"
 		const TY_URL = "/thankyou";
 		document
 			.querySelectorAll<HTMLFormElement>("#webhookForm")
@@ -193,24 +197,28 @@
 
 					console.log(data);
 					sendConversion(data);
+					
+					if (data.email && data.phone && data.countryCode && data.date) {
+						try {
+							const response = await fetch(
+							WEBHOOK_URL,
+								{
+									method: "POST",
+									headers: { "Content-Type": "application/json" },
+									body: JSON.stringify(data),
+								},
+							);
 
-					try {
-						const response = await fetch(
-						WEBHOOK_URL,
-							{
-								method: "POST",
-								headers: { "Content-Type": "application/json" },
-								body: JSON.stringify(data),
-							},
-						);
-
-						if (response.ok) {
-							window.location.href = TY_URL
-						} else {
-							alert("Error al enviar el formulario.");
+							if (response.ok) {
+								window.location.href = TY_URL
+							} else {
+								alert("Error al enviar el formulario.");
+							}
+						} catch (error) {
+							alert("Hubo un problema al enviar los datos.");
 						}
-					} catch (error) {
-						alert("Hubo un problema al enviar los datos.");
+					} else {
+						alert('Por Favor completa todos los campos')
 					}
 				});
 			});
